@@ -1,9 +1,16 @@
 #!/usr/bin/env python
-import PySimpleGUI27 as sg
+#
+# Get Ping ms Results
+#
+# Live Command Results
+# https://www.endpoint.com/blog/2015/01/28/getting-realtime-output-using-python
+# String parsing
+# https://www.computerhope.com/issues/ch001721.htm
+
 import subprocess
 import shlex
 import sys
-import os
+
 
 def run_command(command):
     process = subprocess.Popen(shlex.split(command), stdout=subprocess.PIPE)
@@ -43,12 +50,13 @@ class Example(tk.Frame):
         self.text.see("end")
         self.after(1000, self.add_timestamp)
 
+
 if __name__ == "__main__":
-    root =tk.Tk()
+    root = tk.Tk()
     root.title("Latency")
-    #root.resizable(0,0)
+    # root.resizable(0,0)
     root.geometry("100x50")
-    #root.overrideredirect(1)
+    # root.overrideredirect(1)
     frame = Example(root)
     frame.pack(fill="both", expand=True)
     root.mainloop()
